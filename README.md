@@ -24,13 +24,13 @@ $ npm install
 - В корневой директории проекта настройке файл .env и укажите в нем параметры подключения к вашей базе данных. Пример:
 
 ```sh
-$ PORT=3000
-$ SECRET_KEY=Askjdhgv
+PORT=3000
+SECRET_KEY=Askjdhgv
 
-$ DB_HOST=localhost
-$ DB_USER=root
-$ DB_PASSWORD=
-$ DB_NAME=clothing_store
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=clothing_store
 ```
 
 - Запустите приложение, выполните команду:
