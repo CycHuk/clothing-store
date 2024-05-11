@@ -1,0 +1,25 @@
+<header>
+	<div class='logo'>
+		<h1><a href='/'>Линия Стиля</a></h1>
+	</div>
+	<div class='user-actions'>
+		<div class='profile'>
+			<a href='/profile'>Личный кабинет</a>
+		</div>
+		<div class='cart'>
+			<button onclick='showCartModal()'>Корзина</button>
+			<div id='cartModal' class='modal'>
+				<div class='modal-content'>
+					<span class='close' onclick='closeCartModal()'>&times;</span>
+					<h2>Корзина</h2>
+					<div id='cartItems'></div>
+					<p id='totalPrice'>Общая стоимость: 0</p>
+					<a href='/order'>Оформить заказ</a>
+				</div>
+			</div>
+			<div id='overlay' onclick='closeCartModal()'></div>
+		</div>
+	</div>
+</header>
+
+<script src='script/header.js'></script>

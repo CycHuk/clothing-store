@@ -1,0 +1,33 @@
+<h1>Оформление заказа</h1>
+
+<div id='order-summary'>
+	<h2>Состав заказа</h2>
+	<table id='order-table'>
+		<thead>
+			<tr>
+				<th>Наименование</th>
+				<th>Размер</th>
+				<th>Цена</th>
+				<th>Количество</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+
+<div id='delivery-details'>
+	<h2>Детали доставки</h2>
+	<label for='address'>Адрес:</label>
+	<input type='text' id='address' name='address' required />
+
+	<label for='delivery-date'>Дата доставки:</label>
+	<input type='date' id='delivery-date' name='delivery-date' required />
+
+	<button id='place-order-btn'>Оформить заказ</button>
+	<em>*Оплата при получении</em>
+
+	<div id='errorMessage'></div>
+</div>
+
+<script src='script/order.js'></script>

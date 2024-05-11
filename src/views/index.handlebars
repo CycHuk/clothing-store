@@ -1,0 +1,64 @@
+<h1>Футболки:</h1>
+
+<div class='products'>
+	{{#each Tshirts}}
+		<div class='product-card'>
+			<img src='{{this.photo_url}}' alt='{{this.product_name}}' />
+			<h2>{{this.product_name}}</h2>
+			<label for='size-select'>Размер:</label>
+			<select id='size-select-{{this.product_id}}'>
+				{{#each this.variability}}
+					<option value='{{this.variability_id}}'>{{this.size}}</option>
+				{{/each}}
+			</select>
+			<div class='price-add-to-cart'>
+				<p>Цена: {{this.price}}₽</p>
+				<button onclick="addToCart('{{this.product_id}}')">Добавить в корзину</button>
+			</div>
+		</div>
+	{{/each}}
+</div>
+
+<h1>Брюки для мужчин:</h1>
+
+<div class='products'>
+	{{#each TrousersMale}}
+		<div class='product-card'>
+			<img src='{{this.photo_url}}' alt='{{this.product_name}}' />
+			<h2>{{this.product_name}}</h2>
+			<label for='size-select'>Размер:</label>
+			<select id='size-select-{{this.product_id}}'>
+				{{#each this.variability}}
+					<option value='{{this.variability_id}}'>{{this.size}}</option>
+				{{/each}}
+			</select>
+			<div class='price-add-to-cart'>
+				<p>Цена: {{this.price}}₽</p>
+				<button onclick="addToCart('{{this.product_id}}')">Добавить в корзину</button>
+			</div>
+		</div>
+	{{/each}}
+</div>
+
+<h1>Брюки для женщин:</h1>
+
+<div class='products'>
+	{{#each TrousersWomen}}
+		<div class='product-card'>
+			<img src='{{this.photo_url}}' alt='{{this.product_name}}' />
+			<h2>{{this.product_name}}</h2>
+			<label for='size-select'>Размер:</label>
+			<select id='size-select-{{this.product_id}}'>
+				{{#each this.variability}}
+					<option value='{{this.variability_id}}'>{{this.size}}</option>
+				{{/each}}
+			</select>
+			<div class='price-add-to-cart'>
+				<p>Цена: {{this.price}}₽</p>
+				<button onclick="addToCart('{{this.product_id}}')">Добавить в корзину</button>
+			</div>
+		</div>
+	{{/each}}
+</div>
+
+<script src='script/index.js'></script>
