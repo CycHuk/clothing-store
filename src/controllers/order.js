@@ -27,8 +27,11 @@ const getOrder = async (req, res) => {
 			}
 
 			const orders = results.map(order => ({
-				...order,
-				items: JSON.parse(order.items).map(item => JSON.parse(item)),
+				order_id: order.order_id,
+				customer_id: order.customer_id,
+				address: order.address,
+				order_date: order.order_date,
+				items: JSON.parse(order.items),
 			}))
 
 			return res.status(200).json({ message: 'Ok', orders: orders })
