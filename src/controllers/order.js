@@ -31,7 +31,7 @@ const getOrder = async (req, res) => {
 				customer_id: order.customer_id,
 				address: order.address,
 				order_date: order.order_date,
-				items: JSON.parse(order.items),
+				items: order.items,
 			}))
 
 			return res.status(200).json({ message: 'Ok', orders: orders })
@@ -40,9 +40,6 @@ const getOrder = async (req, res) => {
 		return res.status(400).json({ message: 'Что-то пошло не так' })
 	}
 }
-
-
-
 
 const addOrder = async (req, res) => {
 	try {
