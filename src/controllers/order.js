@@ -6,7 +6,13 @@ const getOrder = async (req, res) => {
 
 		const sql = `
             SELECT O.order_id, O.customer_id, O.address, O.order_date,
-                JSON_ARRAYAGG(JSON_OBJECT('order_item_id', I.order_item_id, 'variability_id', I.variability_id, 'quantity', I.quantity)) AS items
+                JSON_ARRAYAGG(
+                    JSON_OBJECT(
+                        'order_item_id', I.order_item_id,
+                        'variability_id', I.variability_id,
+                        'quantity', I.quantity
+                    )
+                ) AS items
             FROM Orders O
             JOIN OrderItems I ON O.order_id = I.order_id
             WHERE O.customer_id = ?
@@ -20,16 +26,20 @@ const getOrder = async (req, res) => {
 					.json({ message: 'Ошибка при выполнении запроса к базе данных' })
 			}
 
-			results.forEach(order => {
-				order.items = JSON.parse(order.items)
-			})
+			const orders = results.map(order => ({
+				...order,
+				items: JSON.parse(order.items).map(item => JSON.parse(item)),
+			}))
 
-			return res.status(200).json({ message: 'Ok', orders: results })
+			return res.status(200).json({ message: 'Ok', orders: orders })
 		})
 	} catch (error) {
 		return res.status(400).json({ message: 'Что-то пошло не так' })
 	}
 }
+
+
+
 
 const addOrder = async (req, res) => {
 	try {
